@@ -1,6 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import Ajv from "ajv";
-import { saveScript } from "@/lib/storage";
 
 type Body = {
   topic: string;
@@ -459,15 +458,6 @@ Tone: ${req.body.tone}
       const raw = await callHuggingFace(prompt, 800);
       const parsed = await parseOrRepairShorts(raw);
 
-      saveScript({
-        topic: req.body.topic,
-        audience: req.body.audience,
-        tone: req.body.tone,
-        length: req.body.length,
-        videoType: "shorts",
-        output: parsed
-      });
-
       return res.status(200).json(parsed);
     }
 
@@ -525,15 +515,6 @@ Tone: ${req.body.tone}
       req.body.audience,
       req.body.tone
     );
-
-    saveScript({
-      topic: req.body.topic,
-      audience: req.body.audience,
-      tone: req.body.tone,
-      length: req.body.length,
-      videoType: "long",
-      output: enriched
-    });
 
     return res.status(200).json(enriched);
   } catch (error) {
