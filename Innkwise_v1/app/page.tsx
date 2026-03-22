@@ -89,7 +89,7 @@ const faqs = [
   }
 ];
 
-const appDashboardUrl = "https://innkwise-mvp.vercel.app/dashboard";
+const appDashboardUrl = "https://app.innkwise.com";
 const socialLinks = [
   { label: "X", href: "#", icon: Twitter },
   { label: "Facebook", href: "#", icon: null },
@@ -352,6 +352,7 @@ export default function Home() {
                   Contact
                 </a>
               </div>
+              <p>Contact: info@innwise.com</p>
               <p>© 2025 Innkwise-AI. All rights reserved</p>
             </div>
             <div className="flex flex-wrap items-center justify-center gap-4 lg:justify-end">
